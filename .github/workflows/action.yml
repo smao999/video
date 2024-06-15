@@ -26,9 +26,10 @@ jobs:
       - name: 打包 🏗️
         run: |
           pnpm build
-      - name: 部署 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      # - name: 部署 🚀
+      - uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: './dist'
-          clean: true
+          path: './dist'
+      # - name: Deploy to GitHub Pages
+      - id: deployment
+        uses: actions/deploy-pages@v4
