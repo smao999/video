@@ -1,4 +1,4 @@
-name: Actions CI - GitHub Actions Build and Deploy
+name: Actions CI - Next.js version 13 static site export, GitHub Actions Build and Deploy
 on:
   push:
     branches: [main]
@@ -26,10 +26,10 @@ jobs:
       - name: 打包 🏗️
         run: |
           pnpm build
-      # - name: 部署 🚀
-      - uses: actions/upload-pages-artifact@v3
+          touch dist/.nojekyll
+      - name: 部署 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: './dist'
-      # - name: Deploy to GitHub Pages
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          branch: gh-pages
+          folder: './dist'
+          clean: true
