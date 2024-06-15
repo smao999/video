@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(to bottom, transparent, rgb(255,255,255)) rgb(214, 219, 220);
 }
 
 h1 {
