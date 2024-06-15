@@ -27,8 +27,8 @@ jobs:
         run: |
           pnpm build
       - name: 部署 🚀
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          path: './dist'
+          folder: .
           clean: true
