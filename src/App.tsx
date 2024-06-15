@@ -1,4 +1,4 @@
-import VideoPage from "./pages/video"
+import VideoPage from "./pages/videoClip"
 
 function App() {
   
