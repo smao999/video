@@ -19,7 +19,7 @@ const assetsPrefix = <T extends string[] | Record<string, string>>(
 }
 
 const videos = assetsPrefix({
-'test1.mp4': 'demo/test1.mp4',
+'test1.mp4': 'video/demo/test1.mp4',
 'bear.mp4': 'video/bear-vp9.mp4',
 });
 
