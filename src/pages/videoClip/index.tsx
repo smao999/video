@@ -5,23 +5,10 @@ import {Space, Radio, Button} from 'antd';
 
 interface IVideoPage {};
 
-const assetsPrefix = <T extends string[] | Record<string, string>>(
-  assetsURL: T
-): T => {
-  const prefix = process.env.NODE_ENV === 'development' ? '/' : '/WebAV/';
-  if (Array.isArray(assetsURL)) {
-      return assetsURL.map((url) => `${prefix}${url}`) as T;
-  }
-
-  return Object.fromEntries(
-      Object.entries(assetsURL).map(([k, v]) => [k, `${prefix}${v}`])
-  ) as T;
-}
-
-const videos = assetsPrefix({
-'test1.mp4': 'video/demo/test1.mp4',
-'bear.mp4': 'video/bear-vp9.mp4',
-});
+const videos = {
+  'test1.mp4': '/video/demo/test1.mp4',
+  'bear.mp4': 'video/bear-vp9.mp4',
+};
 
 const VideoPage: FC<IVideoPage> = () => {
   const videoConfigRef = useRef<number>(1);
