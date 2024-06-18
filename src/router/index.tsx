@@ -3,20 +3,32 @@ import {Navigate, RouteObject} from "react-router-dom";
 
 const VideoPage = lazy(() => import('@/pages/videoClip'));
 const FabricPage = lazy(() => import('@/pages/fabric'));
+import Layout from "@/layout";
 
-const routes:Array<RouteObject> = [
+const routes:Array<RouteObject & {children?: Array<{name?: string, isMenu?: boolean}>}> = [
     {
         path:'/',
-        element: <Navigate to={'video'} replace />
+        element: <Layout />,
+        children: [
+            {
+                index: true,
+                element: <Navigate to="/video" replace />,
+                isMenu: false
+            },
+            {
+                path: 'fabric',
+                element: <FabricPage />,
+                name: 'canvas',
+                isMenu: true
+            },
+            {
+                path: 'video',
+                element: <VideoPage />,
+                name: 'video',
+                isMenu: true
+            }
+        ]
     },
-    {
-        path: '/video',
-        element: <VideoPage />
-    },
-    {
-        path: '/fabric',
-        element: <FabricPage />
-    }
 ]
 
 export default routes;
