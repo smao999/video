@@ -2,7 +2,7 @@ import {lazy} from "react";
 import {Navigate, RouteObject} from "react-router-dom";
 
 const VideoPage = lazy(() => import('@/pages/videoClip'));
-const FabricPage = lazy(() => import('@/pages/fabric'));
+const FabricPage = lazy(() => import('@/pages/canvas'));
 import Layout from "@/layout";
 
 const routes:Array<RouteObject & {children?: Array<{name?: string, isMenu?: boolean}>}> = [
@@ -16,7 +16,7 @@ const routes:Array<RouteObject & {children?: Array<{name?: string, isMenu?: bool
                 isMenu: false
             },
             {
-                path: 'fabric',
+                path: 'canvas',
                 element: <FabricPage />,
                 name: 'canvas',
                 isMenu: true
