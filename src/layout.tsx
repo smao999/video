@@ -11,7 +11,7 @@ const Layout: FC<ILayout> = () => {
     const location = useLocation();
 
     const items: MenuProps['items'] = useMemo(() => {
-        return routes[0].children?.filter((item:any) => item.isMenu).map((route:any) => {
+        return routes[2].children?.filter((item:any) => item.isMenu).map((route:any) => {
             return {
                 key: route.path!,
                 label: <Link to={route.path || '/'}>{route.name!}</Link>
